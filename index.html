@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #output {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #generateButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Random Numbers Generator</h1>
+    <p>Click the button to generate 30 random non-repeating numbers between 0 and 99.</p>
+
+    <div id="output"></div>
+    <button id="generateButton" onclick="generateNumbers()">Generate Numbers</button>
+
+    <script>
+        function generateNumbers() {
+            var numbers = [];
+            var output = document.getElementById("output");
+
+            // Generate 30 unique random numbers
+            while (numbers.length < 30) {
+                var randomNumber = Math.floor(Math.random() * 100); // Random number between 0 and 99
+
+                // Check if the number is not already in the array
+                if (numbers.indexOf(randomNumber) === -1) {
+                    numbers.push(randomNumber);
+                }
+            }
+
+            // Display the numbers
+            output.textContent = "Generated Numbers: " + numbers.join(", ");
+        }
+    </script>
+
+</body>
+</html>
